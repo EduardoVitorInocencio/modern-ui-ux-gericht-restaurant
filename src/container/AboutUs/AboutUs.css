@@ -1,0 +1,79 @@
+.app__aboutus {
+    position: relative; /* Define que o elemento terá posicionamento relativo, permitindo que elementos filhos com position: absolute sejam posicionados em relação a este contêiner. */
+}
+
+.app__aboutus-overlay {
+    position: absolute; /* Faz o elemento ocupar uma posição específica em relação ao seu elemento pai com position: relative. */
+    inset: 0; /* Define que o elemento ocupará todo o espaço do contêiner pai (top, right, bottom e left iguais a 0). */
+}
+
+.app__aboutus-overlay img {
+    width: 391px; /* Define uma largura fixa para a imagem. */
+    height: 415px; /* Define uma altura fixa para a imagem. */
+    z-index: 0; /* Coloca a imagem no fundo da pilha de elementos (abaixo de outros com maior z-index). */
+}
+
+.app__aboutus-content {
+    width: 100%; /* Faz o elemento ocupar toda a largura do contêiner pai. */
+    z-index: 2; /* Coloca este conteúdo acima do overlay (imagem), pois tem um z-index maior. */
+}
+
+.app__aboutus-content_about {
+    flex: 1; /* Permite que o elemento cresça ou encolha para ocupar o espaço disponível no layout flex. */
+    display: flex; /* Ativa o modelo de layout flexbox para organizar os itens internos. */
+    justify-content: flex-end; /* Alinha os itens internos ao final do eixo principal (horizontal, por padrão). */
+    align-items: flex-end; /* Alinha os itens internos ao final do eixo transversal (vertical). */
+    flex-direction: column; /* Organiza os itens internos em uma coluna (verticalmente). */
+    text-align: right; /* Alinha o texto à direita. */
+}
+
+.app__aboutus-content_knife {
+    margin: 2rem 4rem; /* Adiciona espaçamento externo (margin) de 2rem em cima e embaixo e 4rem nas laterais. */
+}
+
+.app__aboutus-content_knife img {
+    height: 910px; /* Define uma altura fixa para a imagem da faca. */
+}
+
+.app__aboutus-content_history {
+    flex: 1; /* Similar ao conteúdo "about", permite que este bloco ocupe o espaço restante no layout flex. */
+    display: flex; /* Ativa o modelo de layout flexbox. */
+    justify-content: flex-start; /* Alinha os itens internos ao início do eixo principal. */
+    align-items: flex-start; /* Alinha os itens internos ao início do eixo transversal. */
+    flex-direction: column; /* Organiza os itens internos em uma coluna. */
+    text-align: left; /* Alinha o texto à esquerda. */
+}
+
+.app__aboutus-content_about p,
+.app__aboutus-content_history p {
+    margin: 2rem 0; /* Adiciona espaçamento externo (margin) de 2rem em cima e embaixo. */
+    color: var(--color-grey); /* Define a cor do texto usando uma variável CSS personalizada. */
+}
+
+@media screen and (min-width: 2000px) {
+    .app__aboutus-content_knife img {
+        height: 1110px; /* Aumenta a altura da imagem da faca em telas muito grandes. */
+    }
+
+    .app__aboutus-content_about p,
+    .app__aboutus-content_history p {
+        margin: 4rem 0; /* Aumenta o espaçamento entre parágrafos em telas muito grandes. */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .app__aboutus-content {
+        flex-direction: column; /* Em telas menores, os itens internos são empilhados verticalmente. */
+    }
+
+    .app__aboutus-content_knife {
+        margin: 4rem 0; /* Ajusta o espaçamento externo para manter o layout em telas menores. */
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .app__aboutus-overlay img {
+        width: 80%; /* Reduz a largura da imagem para 80% do contêiner em telas pequenas. */
+        height: 320px; /* Define uma altura menor para a imagem em telas pequenas. */
+    }
+}

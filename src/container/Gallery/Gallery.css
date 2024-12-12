@@ -1,0 +1,138 @@
+/* Estilo principal da galeria */
+.app__gallery {
+    /* Define a direção dos elementos filhos em uma linha horizontal */
+    flex-direction: row;
+
+    /* Define o fundo da galeria como preto e adiciona padding */
+    background: var(--color-black);
+    padding: 4rem 0 4rem 6rem;
+}
+
+/* Seção de conteúdo textual da galeria */
+.app__gallery-content {
+    /* Ocupa metade do espaço da galeria */
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Alinha os itens horizontalmente ao centro */
+    align-items: flex-start; /* Alinha os itens ao topo verticalmente */
+    flex-direction: column; /* Os elementos são organizados em coluna */
+
+    /* Define um tamanho mínimo para o conteúdo e adiciona espaçamento à direita */
+    min-width: 500px;
+    padding-right: 2rem;
+}
+
+/* Estilo específico para o botão dentro do conteúdo */
+.app__gallery-content button {
+    /* Adiciona margem superior para separar do restante do conteúdo */
+    margin-top: 1rem;
+}
+
+/* Seção de imagens da galeria */
+.app__gallery-images {
+    /* Ocupa a outra metade do espaço da galeria */
+    flex: 1;
+    display: flex;
+    flex-direction: row; /* Organiza as imagens horizontalmente */
+    max-width: 50%; /* Limita a largura */
+    position: relative; /* Necessário para posicionar os elementos filhos de forma absoluta */
+}
+
+/* Contêiner das imagens que permite rolagem horizontal */
+.app__gallery-images_container {
+    display: flex;
+    flex-direction: row; /* Organiza as imagens em linha */
+    width: max-content; /* Permite que o contêiner expanda conforme o conteúdo */
+    overflow-x: scroll; /* Adiciona rolagem horizontal */
+
+    /* Remove a barra de rolagem padrão */
+    -ms-overflow-style: none; /* Para navegadores da Microsoft */
+    scrollbar-width: none;    /* Para navegadores modernos */
+}
+
+/* Esconde a barra de rolagem no Webkit */
+.app__gallery-images_container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Estilo de cada cartão de imagem */
+.app__gallery-images_card {
+    position: relative; /* Permite sobreposição de elementos */
+    min-width: 301px; /* Define a largura mínima */
+    height: 447px;    /* Define a altura fixa */
+    margin-right: 2rem; /* Espaçamento entre as imagens */
+}
+
+/* Ícone do Instagram sobreposto à imagem */
+.gallery__image-icon {
+    position: absolute; /* Posiciona o ícone sobre a imagem */
+    color: #fff;        /* Define a cor como branco */
+    font-size: 2rem;    /* Define o tamanho do ícone */
+    opacity: 0;         /* Esconde o ícone inicialmente */
+    transition: .5s ease; /* Adiciona uma transição suave */
+    cursor: pointer;    /* Altera o cursor ao passar sobre o ícone */
+}
+
+/* Estilo para a imagem dentro do cartão */
+.app__gallery-images_card img {
+    width: 100%;    /* Preenche toda a largura do cartão */
+    height: 100%;   /* Preenche toda a altura do cartão */
+    object-fit: cover; /* Garante que a imagem seja cortada proporcionalmente */
+    opacity: 1;         /* Inicialmente visível */
+    transition: .5s ease; /* Transição suave para mudanças de opacidade */
+}
+
+/* Efeito de hover no cartão */
+.app__gallery-images_card:hover img {
+    opacity: .35; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+
+.app__gallery-images_card:hover .gallery__image-icon {
+    opacity: 1; /* Torna o ícone visível no hover */
+}
+
+/* Setas de navegação */
+.app__gallery-images_arrows {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Posiciona as setas nos extremos */
+    align-items: center;
+    padding: 0 1rem; /* Adiciona espaçamento interno */
+    position: absolute; /* Posiciona as setas sobre a galeria */
+    bottom: 5%; /* Move as setas para perto do rodapé */
+}
+
+/* Estilo das setas */
+.gallery__arrow-icon {
+    color: var(--color-golden); /* Define a cor padrão */
+    font-size: 2rem; /* Define o tamanho das setas */
+    cursor: pointer; /* Indica que o elemento é clicável */
+    background: var(--color-black); /* Fundo preto */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Efeito de hover nas setas */
+.gallery__arrow-icon:hover {
+    color: var(--color-white); /* Altera a cor para branco no hover */
+}
+
+/* Estilos responsivos */
+
+/* Para telas muito grandes */
+@media screen and (min-width: 2000px) {
+    .app__gallery-content button {
+        margin-top: 2rem; /* Aumenta o espaçamento no botão */
+    }
+
+    .app__gallery-content {
+        min-width: 1000px; /* Aumenta o tamanho mínimo do conteúdo */
+        padding-right: 4rem; /* Adiciona mais espaçamento à direita */
+    }
+
+    .app__gallery-images_card {
+        min-width: 400px; /* Aumenta a largura mínima dos cartões */
+        height: 547px;    /* Aumenta a altura dos cartões */
+    }
+}
+
+/* Para telas menores que 1150
